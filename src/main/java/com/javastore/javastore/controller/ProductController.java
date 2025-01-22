@@ -1,10 +1,8 @@
 package com.javastore.javastore.controller;
-
 import java.io.InputStream;
 import java.nio.file.*;
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -97,8 +95,7 @@ public class ProductController {
             productDto.setCategory(product.getCategory());
             productDto.setPrice(product.getPrice());
             productDto.setDescription(product.getDescription());
-            
-            // Add both product and productDto to model
+                
             model.addAttribute("product", product);
             model.addAttribute("productDto", productDto);
             
@@ -134,7 +131,6 @@ public class ProductController {
                     System.out.println("Exception caught: " + e.getMessage());
                 }
 
-                // Save the new file
                 MultipartFile image = productDto.getImageFile();
                 Date createdAt = new Date();
                 String imageName = createdAt.getTime() + "_" + image.getOriginalFilename();
